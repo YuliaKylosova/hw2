@@ -5,6 +5,8 @@ import com.codeborne.selenide.ElementsCollection;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -45,8 +47,6 @@ public class TestStudentRegistrationForm {
         $("#lastName").setValue(lastName); //Указание значения LastName
         $("#userEmail").setValue(userEmail); //Указание значения Email
         $(byText(gender)).click(); //Хотелось бы получить комментарии, как искать элемент по типу (радиобатон, чекбокс, и т.д.)
-
-
         $("#userNumber").setValue(mobileNumber); //Указание Mobile
 
         $("#dateOfBirthInput").click(); // Выбор месяца и года рождения в календаре
@@ -59,6 +59,8 @@ public class TestStudentRegistrationForm {
 
         $("#subjectsContainer").click(); //Указание Subject
         $("#subjectsContainer input").val(subjects).pressEnter();
+
+        $("#uploadPicture").uploadFile(new File(".\\src\\test\\java\\test"+ pictureName)); //Указание Picture
 
         $("#currentAddress").setValue(currentAddress); //Указание Current Address
 

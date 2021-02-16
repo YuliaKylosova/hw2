@@ -5,8 +5,6 @@ import com.codeborne.selenide.ElementsCollection;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -21,20 +19,20 @@ public class TestStudentRegistrationForm {
     @Test
     void dataAppearsInOutputBlockTest() {
 
-         String firstName = "Yulia";
-         String lastName = "K";
-         String userEmail = "test@test123.com";
-         String mobileNumber = "1234567890";
-         String currentAddress =  "some current address";
-         String subjects = "Computer Science";
-         String gender = "Other";
-         String dayOfBirth = "28";
-         String monthOfBirth = "January";
-         String yearOfBirth = "1990";
-         String hobbies = "Music";
-         String state = "Rajasthan";
-         String city = "Jaipur";
-         String pictureName = "/Screenshot_8.png";
+        String firstName = "Yulia";
+        String lastName = "K";
+        String userEmail = "test@test123.com";
+        String mobileNumber = "1234567890";
+        String currentAddress = "some current address";
+        String subjects = "Computer Science";
+        String gender = "Other";
+        String dayOfBirth = "28";
+        String monthOfBirth = "January";
+        String yearOfBirth = "1990";
+        String hobbies = "Music";
+        String state = "Rajasthan";
+        String city = "Jaipur";
+        String pictureName = "Screenshot_8.png";
 
         // arrange
 
@@ -60,7 +58,7 @@ public class TestStudentRegistrationForm {
         $("#subjectsContainer").click(); //Указание Subject
         $("#subjectsContainer input").val(subjects).pressEnter();
 
-        $("#uploadPicture").uploadFile(new File(".\\src\\test\\java\\test"+ pictureName)); //Указание Picture
+        $("#uploadPicture").uploadFromClasspath(pictureName); //Указание Picture
 
         $("#currentAddress").setValue(currentAddress); //Указание Current Address
 
